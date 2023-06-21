@@ -4,17 +4,32 @@ info:
     version: 1.0.0
     title: STUD API
     contact:
-        name: Kakandris Iasonas
-        email: kiasonas@ece.auth.gr
+        name: STAD Corp
+        email: stadsupport@gmail.com
     license:
         name: Apache 2.0
         url: https://www.apache.org/licenses/LICENSE-2.0.html
 
 servers:
-    - url: https://4960fc6b-69ae-4b81-b305-78ea8d7a987f.mock.pstmn.io
-    # The url: prefix is required localhost anti to milarakis.... .gr
-
+    # Added by API Auto Mocking Plugin
+    - description: SwaggerHub API Auto Mocking
+      url: https://virtserver.swaggerhub.com/IASONAS2001/STAD/1.0.0
+    - url: https://7fe4cb38-ad4e-4260-a616-2eb859735bc3.mock.pstmn.io
+    # The url: prefix is required localhost 
+    - url: http://127.0.0.1:1880/
 paths:
+    /admin/class:
+        post:
+            summary: create a class
+            description: the secretary must be able to create a class
+            operationId: createClass
+            requestBody:
+                $ref: "#/components/requestBodies/Class"
+            responses:
+                "200":
+                    description: successful deletetion
+                "400":
+                    description: bad request
     /admin/class/{className}:
         get:
             summary: get class info
@@ -34,12 +49,8 @@ paths:
                         application/json:
                             schema:
                                 $ref: "#/components/schemas/Class"
-                default:
-                    description: unexpected error
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/Error"
+                "400":
+                    description: bad request
         put:
             summary: change class info
             operationId: putClassInfoAdmin
@@ -54,17 +65,24 @@ paths:
                 $ref: "#/components/requestBodies/Class"
             responses:
                 "200":
-                    description: Successful operation
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/Class"
-                default:
-                    description: unexpected error
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/Error"
+                    description: successful deletetion
+                "400":
+                    description: bad request
+        delete:
+            summary: delete class
+            operationId: deleteClass
+            parameters:
+                - in: path
+                  name: className
+                  description: the name of the class
+                  required: true
+                  schema:
+                      type: string
+            responses:
+                "200":
+                    description: successful deletetion
+                "400":
+                    description: bad request
     /user/{userName}/class/{className}:
         get:
             summary: get class info
@@ -90,12 +108,8 @@ paths:
                         application/json:
                             schema:
                                 $ref: "#/components/schemas/Class"
-                default:
-                    description: unexpected error
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/Error"
+                "400":
+                    description: bad request
         put:
             summary: change class info
             operationId: put Class Info user
@@ -112,22 +126,13 @@ paths:
                   required: true
                   schema:
                       type: string
-
             requestBody:
                 $ref: "#/components/requestBodies/Class"
             responses:
                 "200":
-                    description: Successful operation
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/Class"
-                default:
-                    description: unexpected error
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/Error"
+                    description: successful deletetion
+                "400":
+                    description: bad request
     /user/{userName}/class/{className}/chat:
         get:
             summary: get the chat of the classroom
@@ -153,12 +158,8 @@ paths:
                         application/json:
                             schema:
                                 $ref: "#/components/schemas/Chat"
-                default:
-                    description: unexpected error
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/Error"
+                "400":
+                    description: bad request
         post:
             summary: post a message to the classroom
             operationId: postClassMessage
@@ -179,17 +180,9 @@ paths:
                 $ref: "#/components/requestBodies/NewMessage"
             responses:
                 "200":
-                    description: Successful operation
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/Message"
-                default:
-                    description: unexpected error
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/Error"
+                    description: successful deletetion
+                "400":
+                    description: bad request
     /user/{userName}:
         get:
             summary: get the user details
@@ -209,12 +202,8 @@ paths:
                         application/json:
                             schema:
                                 $ref: "#/components/schemas/User"
-                default:
-                    description: unexpected error
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/Error"
+                "400":
+                    description: bad request
         put:
             summary: edit the user details
             operationId: editUserInfo
@@ -229,17 +218,9 @@ paths:
                 $ref: "#/components/requestBodies/User"
             responses:
                 "200":
-                    description: Successful operation
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/User"
-                default:
-                    description: unexpected error
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/Error"
+                    description: successful deletetion
+                "400":
+                    description: bad request
 
     /user/{userName}/class/{className}/grade:
         get:
@@ -266,12 +247,8 @@ paths:
                         application/json:
                             schema:
                                 $ref: "#/components/schemas/Grade"
-                default:
-                    description: unexpected error
-                    content:
-                        application/json:
-                            schema:
-                               $ref: "#/components/schemas/Error"
+                "400":
+                    description: bad request
     /user/{userName}/notifications: 
         get: 
             summary: get the notifications of the user
@@ -291,12 +268,8 @@ paths:
                         application/json:
                             schema:
                                 $ref: "#/components/schemas/Notifications"
-                default:
-                    description: unexpected error
-                    content:
-                        application/json:
-                            schema:
-                               $ref: "#/components/schemas/Error"
+                "400":
+                    description: bad request
     /user/{userName}/notifications/{notificationId}:
         get:
             summary: get a notification of the user using its id
@@ -323,12 +296,8 @@ paths:
                         application/json:
                             schema:
                                 $ref: "#/components/schemas/Notification"
-                default:
-                    description: unexpected error
-                    content:
-                        application/json:
-                            schema:
-                               $ref: "#/components/schemas/Error"  
+                "400":
+                    description: bad request
     /admin/notifications:
         get:
             summary: get all the notifications
@@ -341,12 +310,8 @@ paths:
                         application/json:
                             schema:
                                 $ref: "#/components/schemas/Notifications"
-                default:
-                    description: unexpected error
-                    content:
-                        application/json:
-                            schema:
-                               $ref: "#/components/schemas/Error"    
+                "400":
+                    description: bad request  
         post:
             summary: post a notification
             operationId: postNotification
@@ -354,17 +319,9 @@ paths:
                 $ref: "#/components/requestBodies/NewNotification"
             responses:
                 "200":
-                    description: Successful operation
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/Notification"
-                default:
-                    description: unexpected error
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/Error"         
+                    description: successful deletetion
+                "400":
+                    description: bad request      
     /admin/notifications/{notificationId}:
         get:
             summary: get a certain notification
@@ -385,12 +342,8 @@ paths:
                         application/json:
                             schema:
                                 $ref: "#/components/schemas/Notification"
-                default:
-                    description: unexpected error
-                    content:
-                        application/json:
-                            schema:
-                               $ref: "#/components/schemas/Error"    
+                "400":
+                    description: bad request
         put:
             summary: edit a certain notification
             description: F5- Το σύστημα θα πρέπει να ειδοποιεί τον χρήστη για νέες ειδοποιήσεις
@@ -407,19 +360,295 @@ paths:
                 $ref: "#/components/requestBodies/NewNotification"
             responses:
                 "200":
-                    description: Successful operation
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/Notification"
-                default:
-                    description: unexpected error
-                    content:
-                        application/json:
-                            schema:
-                               $ref: "#/components/schemas/Error"    
+                    description: successful deletetion
+                "400":
+                    description: bad request
+        delete:
+            summary: delete a certain notification
+            operationId: deleteAdminNotificationById
+            parameters:      
+                - in: path
+                  name: notificationId
+                  description: the name id of the notification
+                  required: true
+                  schema:
+                      type: integer   
+                      format: int64   
+            responses:
+                "200":
+                    description: successful deletetion
+                "400":
+                    description: bad request
+    /admin/class/{className}/user/{userName}/grade:
+        post:
+            summary: upload student grades in tests
+            operationId: uploadUserGrade
+            parameters:
+                - in: path
+                  name: userName
+                  description: the name of the user
+                  required: true
+                  schema:
+                      type: string
+                - in: path
+                  name: className
+                  description: the name of the class
+                  required: true
+                  schema:
+                      type: string
+            requestBody:
+                $ref: "#/components/requestBodies/Grade"
+            responses:
+                "200":
+                    description: successful deletetion
+                "400":
+                    description: bad request
+    /admin/class/{className}/user/{userName}/tests:
+        post:
+            summary: upload student tests
+            description: allows the admin to upload student tests
+            parameters:
+                - in: path
+                  name: userName
+                  description: the name of the user
+                  required: true
+                  schema:
+                      type: string
+                - in: path
+                  name: className
+                  description: the name of the class
+                  required: true
+                  schema:
+                      type: string
+            requestBody:
+                $ref: "#/components/requestBodies/Test"
+            responses:
+                "200":
+                    description: successful deletetion
+                "400":
+                    description: bad request
+    /class/{className}/user/{userName}/notes:
+        post:
+            summary: upload notes
+            description: the teacher wants to upload notes
+            parameters:
+                - in: path
+                  name: userName
+                  description: the name of the user
+                  required: true
+                  schema:
+                      type: string
+                - in: path
+                  name: className
+                  description: the name of the class
+                  required: true
+                  schema:
+                      type: string
+            requestBody:
+                $ref: "#/components/requestBodies/NoteUpload"
+            responses:
+                "200":
+                    description: successful deletetion
+                "400":
+                    description: bad request
+    /class/{className}/user/{userName}/exercises:
+        post:
+            summary: upload exercises
+            description: the teacher wants to upload exercises
+            parameters:
+                - in: path
+                  name: userName
+                  description: the name of the user
+                  required: true
+                  schema:
+                      type: string
+                - in: path
+                  name: className
+                  description: the name of the class
+                  required: true
+                  schema:
+                      type: string
+            requestBody:
+                $ref: "#/components/requestBodies/ExerciseSolution"
+            responses:
+                "200":
+                    description: successful upload
+                "400":
+                    description: bad request
+    /admin/user/{userName}/role:
+        put:
+            summary: edit the role of the user
+            description: the admin must be able to edit the roles of the users
+            operationId: editUserRole
+            parameters:      
+                - in: path
+                  name: userName
+                  description: the name id of the notification
+                  required: true
+                  schema:
+                      type: integer   
+                      format: int64   
+            requestBody:
+                $ref: "#/components/requestBodies/Role"
+            responses:
+                "200":
+                    description: successful deletetion
+                "400":
+                    description: bad request
+    /admin/class/{className}/schedule:
+        put:
+            summary: update the schedule
+            description: the admin must be able to edit the schedule
+            operationId: updateSchedule
+            parameters:
+                - in: path
+                  name: className
+                  description: the name of the class
+                  required: true
+                  schema:
+                      type: string
+            requestBody:
+                $ref: "#/components/requestBodies/ScheduleItem"
+            responses:
+                "200":
+                    description: successful upload
+                "400":
+                    description: bad request
+    /class/{className}/user/{userName}/exercises/{exerciseId}/grade:
+        post:
+            summary: upload exercises grade
+            description: the teacher wants to upload exercises' grade
+            operationId: gradeExercise
+            parameters:
+                - in: path
+                  name: userName
+                  description: the name of the user
+                  required: true
+                  schema:
+                      type: string
+                - in: path
+                  name: className
+                  description: the name of the class
+                  required: true
+                  schema:
+                      type: string
+                - in: path
+                  name: exerciseId
+                  description: the name of the class
+                  required: true
+                  schema:
+                      type: string
+            requestBody:
+                $ref: "#/components/requestBodies/ExerciseGrade"
+            responses:
+                "200":
+                    description: successful upload
+                "400":
+                    description: bad request
+    /user/{userName}/subject/{subjectName}/file:
+        post:
+            summary: upload exercises solution
+            description: the student wants to upload exercises' solutions
+            operationId: ExerciseSolution
+            parameters:
+                - in: path
+                  name: userName
+                  description: the name of the user
+                  required: true
+                  schema:
+                      type: string
+                - in: path
+                  name: subjectName
+                  description: the name of the class
+                  required: true
+                  schema:
+                      type: string
+            requestBody:
+                $ref: "#/components/requestBodies/ExerciseSolution"
+            responses:
+                "200":
+                    description: successful upload
+                "400":
+                    description: bad request
+    /user/login:
+        put:
+            summary: Logs user into the system
+            operationId: loginUser
+            parameters:
+            -   name: username
+                in: query
+                description: The user name for login
+                required: true
+                schema:
+                    type: string
+            -   name: password
+                in: query
+                description: The password for login in clear text
+                required: true
+                schema:
+                    type: string
+            responses:
+                "200":
+                    description: successful deletetion
+                "400":
+                    description: bad request
+    /admin/user:
+        post:
+            summary: Create a new user account
+            operationId: createUser
+            requestBody:
+                $ref: '#/components/requestBodies/User'
+            responses:
+                "200":
+                    description: successful deletetion
+                "400":
+                    description: bad request    
+    /admin/user/{userName}:
+        delete:
+            summary: delete a user
+            operationId: deleteUser
+            parameters:
+            -   name: userName
+                in: path
+                description: The user name for deletetion
+                required: true
+                schema:
+                    type: string
+            responses:
+                "200":
+                    description: successful deletetion
+                "400":
+                    description: bad request
+
 components:
     requestBodies:
+        Role:
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/Role"
+        ExerciseSolution:
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/ExerciseSolutionUpload"
+        ExerciseGrade:
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/ExerciseGradeUpload"
+        ScheduleItem:
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/ScheduleItemUpload"
+        Test:
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/Test"
+            description: Test file
+            required: true
         Class:
             content:
                 application/json:
@@ -448,7 +677,65 @@ components:
                         $ref: "#/components/schemas/NewNotification"
             description: notification model 
             required: true
+        Grade: 
+            content: 
+                application/json: 
+                    schema: 
+                        $ref: "#/components/schemas/Grade"
+            description: notification model 
+            required: true
+        TestUpload: 
+            content: 
+                application/json: 
+                    schema: 
+                        $ref: "#/components/schemas/TestUpload"
+            description: test model 
+            required: true
+        NoteUpload: 
+            content: 
+                application/json: 
+                    schema: 
+                        $ref: "#/components/schemas/NoteUpload"
+            description: note model 
+            required: true
     schemas:
+        Role:
+            type: object
+            properties:
+                roleName:
+                    type: string
+                permissions:
+                    type: object
+        ExerciseSolutionUpload:
+            type: object
+            properties:
+                subjectName:
+                    type: string
+                exerciseId:
+                    type: integer
+                solutionFile:
+                    type: object
+        ExerciseGradeUpload:
+            type: object
+            properties:
+                className:
+                    type: string
+                exerciseId:
+                    type: integer
+                grade: 
+                    type: number
+        ScheduleItemUpload:
+            type: object
+            properties:
+                className:
+                    type: string
+                shceduleItem:
+                    type: object
+                    properties:
+                        title: 
+                            type: string
+                        time:
+                            type: integer
         Class:
             type: object
             properties:
@@ -510,7 +797,6 @@ components:
                     type: string 
                 grade: 
                     type: number 
-
         Notifications: 
             type: array
             items: 
@@ -529,15 +815,31 @@ components:
                   properties: 
                       id: 
                         type: integer
-                        format: int64 
-        Error:
+                        format: int64
+
+        TestUpload: 
+            type: object 
+            properties: 
+                title: 
+                    type: string 
+                file: 
+                    type: string 
+                    format: binary 
+        Test:
+            allOf:
+                - $ref: "#/components/schemas/TestUpload"
+                - type: object
+                  properties:
+                      id:
+                          type: integer
+                          format: int64
+
+
+        NoteUpload:
             type: object
-            required:
-                - code
-                - message
             properties:
-                code:
-                    type: integer
-                    format: int32
-                message:
-                    type: string
+                title: 
+                    type: string 
+                file: 
+                    type: string 
+                    format: binary
