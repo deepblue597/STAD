@@ -1,0 +1,5485 @@
+[
+    {
+        "id": "9a12c8fa74cda53c",
+        "type": "tab",
+        "label": "client side",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8a93927af6e4c41a",
+        "type": "inject",
+        "z": "9a12c8fa74cda53c",
+        "name": "edit class Request admin",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 1660,
+        "wires": [
+            [
+                "f0fff2db7ce4269c"
+            ]
+        ]
+    },
+    {
+        "id": "0da2e02ca392c39c",
+        "type": "http request",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "method": "PUT",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/admin/class/Italian",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "text/plain",
+                "valueValue": ""
+            }
+        ],
+        "x": 590,
+        "y": 1660,
+        "wires": [
+            [
+                "a9e3caf0de23c92c"
+            ]
+        ]
+    },
+    {
+        "id": "5bf453c9bef9ce20",
+        "type": "debug",
+        "z": "9a12c8fa74cda53c",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "f0fff2db7ce4269c",
+        "type": "function",
+        "z": "9a12c8fa74cda53c",
+        "name": "edit class",
+        "func": "msg.payload = {\n    \"className\": \"Geometry\",\n    \"users\": [\n        {\n            \"user\": {\n                \"userName\": \"Iasonas\",\n                \"name\": \"karv\",\n                \"surname\": \"<string>\",\n                \"email\": \"<string>\",\n                \"id\": 123\n            },\n            \"grade\": \"<number>\"\n        },\n        {\n            \"user\": {\n                \"userName\": \"<string>\",\n                \"name\": \"<string>\",\n                \"surname\": \"<string>\",\n                \"email\": \"<string>\",\n                \"id\": \"<long>\"\n            },\n            \"grade\": \"<number>\"\n        }\n    ]\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1660,
+        "wires": [
+            [
+                "0da2e02ca392c39c"
+            ]
+        ]
+    },
+    {
+        "id": "a9e3caf0de23c92c",
+        "type": "json",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 750,
+        "y": 1660,
+        "wires": [
+            [
+                "5bf453c9bef9ce20"
+            ]
+        ]
+    },
+    {
+        "id": "9e7837a4ba95d84f",
+        "type": "inject",
+        "z": "9a12c8fa74cda53c",
+        "name": "post message",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 2200,
+        "wires": [
+            [
+                "409d6312a347c467"
+            ]
+        ]
+    },
+    {
+        "id": "5c7658976d8d4d28",
+        "type": "http request",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/user/Aliki/class/Italian/chat",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "text/plain",
+                "valueValue": ""
+            }
+        ],
+        "x": 550,
+        "y": 2200,
+        "wires": [
+            [
+                "101d08e041aad834"
+            ]
+        ]
+    },
+    {
+        "id": "7dcf48bb59795d37",
+        "type": "debug",
+        "z": "9a12c8fa74cda53c",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 2200,
+        "wires": []
+    },
+    {
+        "id": "101d08e041aad834",
+        "type": "json",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 790,
+        "y": 2200,
+        "wires": [
+            [
+                "7dcf48bb59795d37"
+            ]
+        ]
+    },
+    {
+        "id": "409d6312a347c467",
+        "type": "function",
+        "z": "9a12c8fa74cda53c",
+        "name": "add message",
+        "func": "msg.payload = {\n\n    \"message\": \"kalispera\",\n}\n    \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 2200,
+        "wires": [
+            [
+                "5c7658976d8d4d28"
+            ]
+        ]
+    },
+    {
+        "id": "adb14fe85fa80873",
+        "type": "inject",
+        "z": "9a12c8fa74cda53c",
+        "name": "edit profile user Request",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 2700,
+        "wires": [
+            [
+                "1ae1c9078872add0"
+            ]
+        ]
+    },
+    {
+        "id": "4657f2b40584e8e9",
+        "type": "http request",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "method": "PUT",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/user/iasonas55",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "text/plain",
+                "valueValue": ""
+            }
+        ],
+        "x": 670,
+        "y": 2700,
+        "wires": [
+            [
+                "5e38cf317524de8f"
+            ]
+        ]
+    },
+    {
+        "id": "d299b0f6bf216e17",
+        "type": "debug",
+        "z": "9a12c8fa74cda53c",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 2700,
+        "wires": []
+    },
+    {
+        "id": "1ae1c9078872add0",
+        "type": "function",
+        "z": "9a12c8fa74cda53c",
+        "name": "edited data",
+        "func": "msg.payload = {\n\n    \"userName\": \"iasonas55\",\n    \"name\": \"Iasonas\",\n    \"surname\": \"Kakandris\",\n    \"email\": \"kiasonas@ece.auth.gr\",\n    \"id\": \"<long>\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 2700,
+        "wires": [
+            [
+                "4657f2b40584e8e9"
+            ]
+        ]
+    },
+    {
+        "id": "5e38cf317524de8f",
+        "type": "json",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 850,
+        "y": 2700,
+        "wires": [
+            [
+                "d299b0f6bf216e17"
+            ]
+        ]
+    },
+    {
+        "id": "4f031adeb690fa5b",
+        "type": "comment",
+        "z": "9a12c8fa74cda53c",
+        "name": "view Class",
+        "info": "",
+        "x": 160,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "1cd894d5c9f71126",
+        "type": "inject",
+        "z": "9a12c8fa74cda53c",
+        "name": "user get Notifications",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 700,
+        "wires": [
+            [
+                "b150c35a85a146a7"
+            ]
+        ]
+    },
+    {
+        "id": "b150c35a85a146a7",
+        "type": "http request",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/user/Iasonas/notifications",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 450,
+        "y": 700,
+        "wires": [
+            [
+                "bc7f6e8ff4182d73"
+            ]
+        ]
+    },
+    {
+        "id": "f4028ff681185172",
+        "type": "debug",
+        "z": "9a12c8fa74cda53c",
+        "name": "Get grades",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "bc7f6e8ff4182d73",
+        "type": "json",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 630,
+        "y": 700,
+        "wires": [
+            [
+                "f4028ff681185172"
+            ]
+        ]
+    },
+    {
+        "id": "161ac608e79be36f",
+        "type": "inject",
+        "z": "9a12c8fa74cda53c",
+        "name": "View vclass",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 220,
+        "wires": [
+            [
+                "afca6dd81bd86576"
+            ]
+        ]
+    },
+    {
+        "id": "afca6dd81bd86576",
+        "type": "http request",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/user/Iasonas/class/Geometry",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 450,
+        "y": 220,
+        "wires": [
+            [
+                "5fcbafbff6ed3097"
+            ]
+        ]
+    },
+    {
+        "id": "59ebe4b55a395484",
+        "type": "debug",
+        "z": "9a12c8fa74cda53c",
+        "name": "Get grades",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "5fcbafbff6ed3097",
+        "type": "json",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 630,
+        "y": 220,
+        "wires": [
+            [
+                "59ebe4b55a395484"
+            ]
+        ]
+    },
+    {
+        "id": "5a111e9dca8ed789",
+        "type": "inject",
+        "z": "9a12c8fa74cda53c",
+        "name": "admin get Notifications",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 580,
+        "wires": [
+            [
+                "66b7c34ad2b6e9d8"
+            ]
+        ]
+    },
+    {
+        "id": "66b7c34ad2b6e9d8",
+        "type": "http request",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/admin/notifications",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 450,
+        "y": 580,
+        "wires": [
+            [
+                "89f0ec9ff9529a29"
+            ]
+        ]
+    },
+    {
+        "id": "03c99726cf780b5f",
+        "type": "debug",
+        "z": "9a12c8fa74cda53c",
+        "name": "Get notifications",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "5707ea284f113d7f",
+        "type": "comment",
+        "z": "9a12c8fa74cda53c",
+        "name": "S-1 User notification",
+        "info": "",
+        "x": 170,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "89f0ec9ff9529a29",
+        "type": "json",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 610,
+        "y": 580,
+        "wires": [
+            [
+                "03c99726cf780b5f"
+            ]
+        ]
+    },
+    {
+        "id": "4567085bb1e80235",
+        "type": "inject",
+        "z": "9a12c8fa74cda53c",
+        "name": "user get Notification by id",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 800,
+        "wires": [
+            [
+                "a5d36ddbfc5da1ef"
+            ]
+        ]
+    },
+    {
+        "id": "a5d36ddbfc5da1ef",
+        "type": "http request",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/user/Iasonas/notifications/12",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 450,
+        "y": 800,
+        "wires": [
+            [
+                "370d4cd4a55d06e0"
+            ]
+        ]
+    },
+    {
+        "id": "55f593696f1be9cb",
+        "type": "debug",
+        "z": "9a12c8fa74cda53c",
+        "name": "Get grades",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "370d4cd4a55d06e0",
+        "type": "json",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 610,
+        "y": 800,
+        "wires": [
+            [
+                "55f593696f1be9cb"
+            ]
+        ]
+    },
+    {
+        "id": "7ffd78411017993a",
+        "type": "inject",
+        "z": "9a12c8fa74cda53c",
+        "name": "admin get Notification by id",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 900,
+        "wires": [
+            [
+                "196699185c5a425b"
+            ]
+        ]
+    },
+    {
+        "id": "196699185c5a425b",
+        "type": "http request",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/admin/notifications/12",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 490,
+        "y": 900,
+        "wires": [
+            [
+                "b25c97acde3289fa"
+            ]
+        ]
+    },
+    {
+        "id": "4a826febed9fb668",
+        "type": "debug",
+        "z": "9a12c8fa74cda53c",
+        "name": "Get grades",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "b25c97acde3289fa",
+        "type": "json",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 650,
+        "y": 900,
+        "wires": [
+            [
+                "4a826febed9fb668"
+            ]
+        ]
+    },
+    {
+        "id": "efa53115a850a524",
+        "type": "inject",
+        "z": "9a12c8fa74cda53c",
+        "name": "admin post Notification",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 1020,
+        "wires": [
+            [
+                "bef98c82a38461ca"
+            ]
+        ]
+    },
+    {
+        "id": "e8464729a02f759a",
+        "type": "http request",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/admin/notifications",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "text/plain",
+                "valueValue": ""
+            }
+        ],
+        "x": 610,
+        "y": 1020,
+        "wires": [
+            [
+                "c01804f4a0e2de43"
+            ]
+        ]
+    },
+    {
+        "id": "092feaee6b5a0d3a",
+        "type": "debug",
+        "z": "9a12c8fa74cda53c",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "c01804f4a0e2de43",
+        "type": "json",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 850,
+        "y": 1020,
+        "wires": [
+            [
+                "092feaee6b5a0d3a"
+            ]
+        ]
+    },
+    {
+        "id": "bef98c82a38461ca",
+        "type": "function",
+        "z": "9a12c8fa74cda53c",
+        "name": "post data",
+        "func": "msg.payload = {\n\n  \"title\": \"anavoli \",\n  \"body\": \"anavoli gia avrio\"\n}\n    \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 1020,
+        "wires": [
+            [
+                "e8464729a02f759a"
+            ]
+        ]
+    },
+    {
+        "id": "f9f6d26d5cd7c6f5",
+        "type": "inject",
+        "z": "9a12c8fa74cda53c",
+        "name": "edit notification Request",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 1140,
+        "wires": [
+            [
+                "976368207bda6bf9"
+            ]
+        ]
+    },
+    {
+        "id": "ba916dfe08ada9fc",
+        "type": "http request",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "method": "PUT",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/admin/notifications/15",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "text/plain",
+                "valueValue": ""
+            }
+        ],
+        "x": 630,
+        "y": 1140,
+        "wires": [
+            [
+                "f79c2c50f747cef9"
+            ]
+        ]
+    },
+    {
+        "id": "552116aa710d0318",
+        "type": "debug",
+        "z": "9a12c8fa74cda53c",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "976368207bda6bf9",
+        "type": "function",
+        "z": "9a12c8fa74cda53c",
+        "name": "Edited data",
+        "func": "msg.payload = {\n\n    \"title\": \"anavoli \",\n    \"body\": \"anavoli gia metavrioooo\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 1140,
+        "wires": [
+            [
+                "ba916dfe08ada9fc"
+            ]
+        ]
+    },
+    {
+        "id": "f79c2c50f747cef9",
+        "type": "json",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 790,
+        "y": 1140,
+        "wires": [
+            [
+                "552116aa710d0318"
+            ]
+        ]
+    },
+    {
+        "id": "d218755915efaf5a",
+        "type": "inject",
+        "z": "9a12c8fa74cda53c",
+        "name": "delete notification Request",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 1280,
+        "wires": [
+            [
+                "57317aaf8eda7415"
+            ]
+        ]
+    },
+    {
+        "id": "57317aaf8eda7415",
+        "type": "http request",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "method": "DELETE",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/admin/notifications/15",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "text/plain",
+                "valueValue": ""
+            }
+        ],
+        "x": 470,
+        "y": 1280,
+        "wires": [
+            [
+                "836e0aaa1836d5c8"
+            ]
+        ]
+    },
+    {
+        "id": "563262ce59bc840e",
+        "type": "debug",
+        "z": "9a12c8fa74cda53c",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "836e0aaa1836d5c8",
+        "type": "json",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 670,
+        "y": 1280,
+        "wires": [
+            [
+                "563262ce59bc840e"
+            ]
+        ]
+    },
+    {
+        "id": "1b201951a206683a",
+        "type": "comment",
+        "z": "9a12c8fa74cda53c",
+        "name": "S-10 Edit Class",
+        "info": "",
+        "x": 120,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "3478bfb956f5379d",
+        "type": "inject",
+        "z": "9a12c8fa74cda53c",
+        "name": "edit class Request teacher",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 1800,
+        "wires": [
+            [
+                "a39db1a5a0637ea2"
+            ]
+        ]
+    },
+    {
+        "id": "6aed212ba930970e",
+        "type": "http request",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "method": "PUT",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/user/Aliki/class/Italian",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "text/plain",
+                "valueValue": ""
+            }
+        ],
+        "x": 590,
+        "y": 1800,
+        "wires": [
+            [
+                "79daa54caea41444"
+            ]
+        ]
+    },
+    {
+        "id": "36dfa2f265126333",
+        "type": "debug",
+        "z": "9a12c8fa74cda53c",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "a39db1a5a0637ea2",
+        "type": "function",
+        "z": "9a12c8fa74cda53c",
+        "name": "edit class",
+        "func": "msg.payload = {\n    \"className\": \"Italian\",\n    \"users\": [\n        {\n            \"user\": {\n                \"userName\": \"Iasonas\",\n                \"name\": \"<string>\",\n                \"surname\": \"<string>\",\n                \"email\": \"<string>\",\n                \"id\": 123\n            },\n            \"grade\": \"<number>\"\n        },\n        {\n            \"user\": {\n                \"userName\": \"Eirini\",\n                \"name\": \"<string>\",\n                \"surname\": \"<string>\",\n                \"email\": \"<string>\",\n                \"id\": \"<long>\"\n            },\n            \"grade\": \"<number>\"\n        }\n    ]\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1800,
+        "wires": [
+            [
+                "6aed212ba930970e"
+            ]
+        ]
+    },
+    {
+        "id": "79daa54caea41444",
+        "type": "json",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 770,
+        "y": 1800,
+        "wires": [
+            [
+                "36dfa2f265126333"
+            ]
+        ]
+    },
+    {
+        "id": "bed2cf20ac45c9f4",
+        "type": "inject",
+        "z": "9a12c8fa74cda53c",
+        "name": "open chat",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 2120,
+        "wires": [
+            [
+                "48ee52987d3095d1"
+            ]
+        ]
+    },
+    {
+        "id": "48ee52987d3095d1",
+        "type": "http request",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/user/Aliki/class/Italian/chat",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "text/plain",
+                "valueValue": ""
+            }
+        ],
+        "x": 430,
+        "y": 2120,
+        "wires": [
+            [
+                "4694b267e68d629a"
+            ]
+        ]
+    },
+    {
+        "id": "3293f1e861174c3e",
+        "type": "debug",
+        "z": "9a12c8fa74cda53c",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 920,
+        "y": 2120,
+        "wires": []
+    },
+    {
+        "id": "4694b267e68d629a",
+        "type": "json",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 730,
+        "y": 2120,
+        "wires": [
+            [
+                "3293f1e861174c3e"
+            ]
+        ]
+    },
+    {
+        "id": "d0ba6dbba2f74d9c",
+        "type": "comment",
+        "z": "9a12c8fa74cda53c",
+        "name": "S-11 Open chat",
+        "info": "",
+        "x": 120,
+        "y": 2020,
+        "wires": []
+    },
+    {
+        "id": "60649db112cabdad",
+        "type": "inject",
+        "z": "9a12c8fa74cda53c",
+        "name": "Get grade",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 2480,
+        "wires": [
+            [
+                "40ee4a1f44a9256c"
+            ]
+        ]
+    },
+    {
+        "id": "40ee4a1f44a9256c",
+        "type": "http request",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/user/danai/class/Physics/grade",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 390,
+        "y": 2480,
+        "wires": [
+            [
+                "bff2dc5ad90e4746"
+            ]
+        ]
+    },
+    {
+        "id": "85ad33a1d034ba3a",
+        "type": "debug",
+        "z": "9a12c8fa74cda53c",
+        "name": "Get grades",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 2480,
+        "wires": []
+    },
+    {
+        "id": "4c2df25cc0621f8d",
+        "type": "comment",
+        "z": "9a12c8fa74cda53c",
+        "name": "S-7 Calculate average grade",
+        "info": "",
+        "x": 160,
+        "y": 2400,
+        "wires": []
+    },
+    {
+        "id": "bff2dc5ad90e4746",
+        "type": "json",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 590,
+        "y": 2480,
+        "wires": [
+            [
+                "85ad33a1d034ba3a"
+            ]
+        ]
+    },
+    {
+        "id": "cd6aed842cc2bd9c",
+        "type": "comment",
+        "z": "9a12c8fa74cda53c",
+        "name": "S-6 Edit profile",
+        "info": "",
+        "x": 120,
+        "y": 2640,
+        "wires": []
+    },
+    {
+        "id": "0837cda6ec29df11",
+        "type": "inject",
+        "z": "9a12c8fa74cda53c",
+        "name": "create user",
+        "props": [
+            {
+                "p": "userName",
+                "v": "nat12",
+                "vt": "str"
+            },
+            {
+                "p": "name",
+                "v": "Natalia",
+                "vt": "str"
+            },
+            {
+                "p": "surname",
+                "v": "Fotiadou",
+                "vt": "str"
+            },
+            {
+                "p": "email",
+                "v": "natf@gmai.com",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 3240,
+        "wires": [
+            [
+                "434c79165ff44016"
+            ]
+        ]
+    },
+    {
+        "id": "002e2d28ca6ef275",
+        "type": "debug",
+        "z": "9a12c8fa74cda53c",
+        "name": "name",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 3240,
+        "wires": []
+    },
+    {
+        "id": "9a3b0ed1f6820667",
+        "type": "inject",
+        "z": "9a12c8fa74cda53c",
+        "name": "Get user",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 2980,
+        "wires": [
+            [
+                "32c755fc2f2f5975"
+            ]
+        ]
+    },
+    {
+        "id": "32c755fc2f2f5975",
+        "type": "http request",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/user/iasonas55",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 390,
+        "y": 2980,
+        "wires": [
+            [
+                "2660d9490ef71d26"
+            ]
+        ]
+    },
+    {
+        "id": "ca8fe8f618f714d5",
+        "type": "debug",
+        "z": "9a12c8fa74cda53c",
+        "name": "Get grades",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 2980,
+        "wires": []
+    },
+    {
+        "id": "2660d9490ef71d26",
+        "type": "json",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 550,
+        "y": 2980,
+        "wires": [
+            [
+                "ca8fe8f618f714d5"
+            ]
+        ]
+    },
+    {
+        "id": "38e1eaac2276fb07",
+        "type": "comment",
+        "z": "9a12c8fa74cda53c",
+        "name": "View profile",
+        "info": "",
+        "x": 110,
+        "y": 2920,
+        "wires": []
+    },
+    {
+        "id": "234e84bb67194e0d",
+        "type": "comment",
+        "z": "9a12c8fa74cda53c",
+        "name": "create profile",
+        "info": "",
+        "x": 130,
+        "y": 3160,
+        "wires": []
+    },
+    {
+        "id": "4f1022e8b807f8e5",
+        "type": "http request",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/admin/user",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 490,
+        "y": 3240,
+        "wires": [
+            [
+                "2314ec187d8f7618"
+            ]
+        ]
+    },
+    {
+        "id": "434c79165ff44016",
+        "type": "function",
+        "z": "9a12c8fa74cda53c",
+        "name": "edited data",
+        "func": "msg.payload = {\n\n    \"userName\": \"nat12\",\n    \"name\": \"Natalia\",\n    \"surname\": \"kougia\",\n    \"email\": \"natkou@ece.auth.gr\",\n    \"id\": \"132\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 330,
+        "y": 3240,
+        "wires": [
+            [
+                "4f1022e8b807f8e5"
+            ]
+        ]
+    },
+    {
+        "id": "2314ec187d8f7618",
+        "type": "json",
+        "z": "9a12c8fa74cda53c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 670,
+        "y": 3240,
+        "wires": [
+            [
+                "002e2d28ca6ef275"
+            ]
+        ]
+    },
+    {
+        "id": "4c16b7e2987c9301",
+        "type": "tab",
+        "label": "server side",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "07203bd325ba4c61",
+        "type": "http in",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "url": "/admin/class/:className",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 260,
+        "wires": [
+            [
+                "d41f7db8fcdd2674"
+            ]
+        ]
+    },
+    {
+        "id": "3187eb78c8756fd1",
+        "type": "http response",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1170,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d41f7db8fcdd2674",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "loadPathParameter",
+        "func": "var className = msg.req.params.className;\n\nmsg.payload = { \n    \"className\":className\n}\nreturn msg ; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 260,
+        "wires": [
+            [
+                "825d34701048a7a8"
+            ]
+        ]
+    },
+    {
+        "id": "825d34701048a7a8",
+        "type": "mongodb in",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "tester",
+        "operation": "find",
+        "x": 830,
+        "y": 260,
+        "wires": [
+            [
+                "3187eb78c8756fd1"
+            ]
+        ]
+    },
+    {
+        "id": "e80fa48a44a3a133",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "getClassInfoAdmin",
+        "info": "get class info\nFR1 Ο καθηγητής και η γραμματεία πρέπει να μπορεί να επεξεργαστεί την τάξη",
+        "x": 130,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "07cef57cc23e33c0",
+        "type": "http in",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "url": "user/:userName/class/:className",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 400,
+        "wires": [
+            [
+                "75d8e381bd02feb5"
+            ]
+        ]
+    },
+    {
+        "id": "6636c08e754d7bec",
+        "type": "http response",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1190,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "75d8e381bd02feb5",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "loadPathParameters",
+        "func": "var className = msg.req.params.className;\nvar username = msg.req.params.userName ; \nmsg.payload = { \n    \"className\":className,\n    \"users.user.userName\":username\n}\nreturn msg ; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 400,
+        "wires": [
+            [
+                "a4f971fd57f89fdc"
+            ]
+        ]
+    },
+    {
+        "id": "a4f971fd57f89fdc",
+        "type": "mongodb in",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "tester",
+        "operation": "find",
+        "x": 850,
+        "y": 400,
+        "wires": [
+            [
+                "6636c08e754d7bec"
+            ]
+        ]
+    },
+    {
+        "id": "f8c756eb47c3ce21",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "getClassInfoUser",
+        "info": "get class info\nFR1 Ο καθηγητής και η γραμματεία πρέπει να μπορεί να επεξεργαστεί την τάξη",
+        "x": 120,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "4e502c0f31924dd0",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "FR-1 Ο καθηγητής και η γραμματεία πρέπει να μπορεί να επεξεργαστεί την τάξη",
+        "info": "",
+        "x": 320,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "908044533b151bd0",
+        "type": "http in",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "url": "/admin/class/:className",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 600,
+        "wires": [
+            [
+                "f81c1e85eee18de7",
+                "d8260fab04325ee9"
+            ]
+        ]
+    },
+    {
+        "id": "f81c1e85eee18de7",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "loadPathParameter",
+        "func": "var className = msg.req.params.className;\nlet editClass = JSON.parse(msg.req.body); \n\nmsg.payload = { \n    \"className\":className\n}\nmsg.topic = editClass ; \nreturn msg ; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 600,
+        "wires": [
+            [
+                "308635985f8efe61",
+                "7a2b06aa8d894dab"
+            ]
+        ]
+    },
+    {
+        "id": "b7f9740786f2e78f",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "changeClassInfoAdmin",
+        "info": "change class info\nFR1 Ο καθηγητής και η γραμματεία πρέπει να μπορεί να επεξεργαστεί την τάξη",
+        "x": 140,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "f0327990f3b83c23",
+        "type": "mongodb out",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "tester",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 1170,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "308635985f8efe61",
+        "type": "mongodb in",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "tester",
+        "operation": "find",
+        "x": 690,
+        "y": 600,
+        "wires": [
+            [
+                "8f0fb9c393f92ada",
+                "3e2be0852852df67"
+            ]
+        ]
+    },
+    {
+        "id": "3e2be0852852df67",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "changeClassData",
+        "func": "\nmsg.payload[0].className = msg.topic.className ;  \nmsg.payload[0].users = msg.topic.users ; \nlet lesson = msg.payload[0] ; \nmsg.payload = lesson; \n\nreturn msg ; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 740,
+        "wires": [
+            [
+                "595f2ac850876db9",
+                "c5cd4750efe3faf1"
+            ]
+        ]
+    },
+    {
+        "id": "7a2b06aa8d894dab",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "changedData",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "595f2ac850876db9",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "changed data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "c5cd4750efe3faf1",
+        "type": "change",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "query._id",
+                "pt": "msg",
+                "to": "payload._id",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload._id",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 920,
+        "y": 740,
+        "wires": [
+            [
+                "f0327990f3b83c23",
+                "0c377eb5620ff4ab",
+                "8789cd161767ac90"
+            ]
+        ]
+    },
+    {
+        "id": "0c377eb5620ff4ab",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "adding id to query",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "d8260fab04325ee9",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 180,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "8f0fb9c393f92ada",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "classData",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "8789cd161767ac90",
+        "type": "http response",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1130,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "a62ec6e370e5e9da",
+        "type": "http in",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "url": "/user/:userName/class/:className",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 1020,
+        "wires": [
+            [
+                "efabacdadf93449e"
+            ]
+        ]
+    },
+    {
+        "id": "efabacdadf93449e",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "loadPathParameter",
+        "func": "var className = msg.req.params.className;\nlet editClass = JSON.parse(msg.req.body);\n\nmsg.payload = {\n    \"className\": className\n}\nmsg.topic = editClass;\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 1020,
+        "wires": [
+            [
+                "c0c1660f89a7cd3a",
+                "fcf25fd5a4d7acc4"
+            ]
+        ]
+    },
+    {
+        "id": "92a0f380ed8a7491",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "changeClassInfoTeacher",
+        "info": "change class info\nFR1 Ο καθηγητής και η γραμματεία πρέπει να μπορεί να επεξεργαστεί την τάξη",
+        "x": 130,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "407d9333eb42a731",
+        "type": "mongodb out",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "tester",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 1190,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "c0c1660f89a7cd3a",
+        "type": "mongodb in",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "tester",
+        "operation": "find",
+        "x": 730,
+        "y": 1020,
+        "wires": [
+            [
+                "f697a3b17635b280",
+                "6805c6d5f8d4b7ef"
+            ]
+        ]
+    },
+    {
+        "id": "f697a3b17635b280",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "changeClassData",
+        "func": "\nmsg.payload[0].className = msg.topic.className;\nmsg.payload[0].users = msg.topic.users;\nlet lesson = msg.payload[0];\nmsg.payload = lesson;\n\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 1160,
+        "wires": [
+            [
+                "4b7b4ea077571608",
+                "88451334c28467be"
+            ]
+        ]
+    },
+    {
+        "id": "6805c6d5f8d4b7ef",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "fcf25fd5a4d7acc4",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "className",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "4b7b4ea077571608",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "changed data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "88451334c28467be",
+        "type": "change",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "query._id",
+                "pt": "msg",
+                "to": "payload._id",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload._id",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 940,
+        "y": 1160,
+        "wires": [
+            [
+                "407d9333eb42a731",
+                "63a3bc0f483b90c2",
+                "bddf24ab872902d0"
+            ]
+        ]
+    },
+    {
+        "id": "63a3bc0f483b90c2",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "adding id to query",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "bddf24ab872902d0",
+        "type": "http response",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1170,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "5ce68ac33919b8c0",
+        "type": "http in",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "url": "admin/class/:className",
+        "method": "delete",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 1460,
+        "wires": [
+            [
+                "285b5ba5786b47c0"
+            ]
+        ]
+    },
+    {
+        "id": "285b5ba5786b47c0",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "loadPathParameter",
+        "func": "let className = msg.req.params.className;\n\nmsg.payload = { \n    \"className\":className\n}\nreturn msg ; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 1460,
+        "wires": [
+            [
+                "2096482a39205435",
+                "e0d418073c48775d"
+            ]
+        ]
+    },
+    {
+        "id": "a9a889288460c64d",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "deleteClassAdmin",
+        "info": "delete a certain class\n",
+        "x": 110,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "1ec0ac0326945f3d",
+        "type": "mongodb out",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "tester",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "delete",
+        "x": 1230,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "2096482a39205435",
+        "type": "mongodb in",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "tester",
+        "operation": "find",
+        "x": 710,
+        "y": 1460,
+        "wires": [
+            [
+                "a3422990a8cd3f54",
+                "64183417d24048b7"
+            ]
+        ]
+    },
+    {
+        "id": "a3422990a8cd3f54",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "e0d418073c48775d",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "className",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "699ad2b84945a03c",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "object to be deleted",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1210,
+        "y": 1620,
+        "wires": []
+    },
+    {
+        "id": "64183417d24048b7",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "className",
+        "func": " \nlet _class = msg.payload[0] ; \nmsg.payload = _class; \n\nreturn msg ; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 1460,
+        "wires": [
+            [
+                "699ad2b84945a03c",
+                "1ec0ac0326945f3d",
+                "9d0cda21890443fe"
+            ]
+        ]
+    },
+    {
+        "id": "9d0cda21890443fe",
+        "type": "http response",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1170,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "81414fce979a37bd",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "FR-2 Ο χρήστης θα πρέπει να έχει τη δυνατότητα να συνομιλήσει με τα υπόλοιπα μέλη της ‘τάξης’",
+        "info": "",
+        "x": 370,
+        "y": 1820,
+        "wires": []
+    },
+    {
+        "id": "c8d87f84b3237063",
+        "type": "http in",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "url": "user/:userName/class/:className/chat",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 2000,
+        "wires": [
+            [
+                "5ca7bfafb8032c8c"
+            ]
+        ]
+    },
+    {
+        "id": "6f24e759dcf97c72",
+        "type": "http response",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1110,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "5ca7bfafb8032c8c",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "loadPathParameters",
+        "func": "// var className = msg.req.params.className;\n// var username = msg.req.params.userName ; \n// msg.payload = { \n//     \"className\":className,\n// }\nreturn msg ; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 2000,
+        "wires": [
+            [
+                "968d12e0804bc727"
+            ]
+        ]
+    },
+    {
+        "id": "968d12e0804bc727",
+        "type": "mongodb in",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "chat",
+        "operation": "find",
+        "x": 840,
+        "y": 2000,
+        "wires": [
+            [
+                "6f24e759dcf97c72"
+            ]
+        ]
+    },
+    {
+        "id": "778c474fb9e956a5",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "getClassChat",
+        "info": " get the chat of the classroom\n F2- Ο χρήστης θα πρέπει να έχει τη δυνατότητα να συνομιλήσει με τα υπόλοιπα μέλη της ‘τάξης’",
+        "x": 130,
+        "y": 1940,
+        "wires": []
+    },
+    {
+        "id": "776d0e90505508ad",
+        "type": "http in",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "url": "/user/:userName/class/:className/chat",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 2260,
+        "wires": [
+            [
+                "15677c76056d9bb5",
+                "2f7ccf855bb51fb5"
+            ]
+        ]
+    },
+    {
+        "id": "b54ded08f07898cc",
+        "type": "mongodb out",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "chat",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 820,
+        "y": 2260,
+        "wires": []
+    },
+    {
+        "id": "f331e18c5686a4b9",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "postClassMessage",
+        "info": "post a message to the classroom",
+        "x": 130,
+        "y": 2200,
+        "wires": []
+    },
+    {
+        "id": "8a3b94ee3ae68755",
+        "type": "http response",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 770,
+        "y": 2360,
+        "wires": []
+    },
+    {
+        "id": "15677c76056d9bb5",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "message",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "req.body",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 2180,
+        "wires": []
+    },
+    {
+        "id": "2f7ccf855bb51fb5",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "loadPathParameter",
+        "func": "let username = msg.req.params.userName;\nlet message = JSON.parse(msg.req.body) ;\nmsg.topic = message ; \n\nmsg.payload = {\n    \"username\": username,\n    \"message\": msg.topic.message\n}\n// msg.topic = editClass;\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 2260,
+        "wires": [
+            [
+                "b54ded08f07898cc",
+                "a94369bb1930ceb0",
+                "8a3b94ee3ae68755"
+            ]
+        ]
+    },
+    {
+        "id": "a94369bb1930ceb0",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "message",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 2180,
+        "wires": []
+    },
+    {
+        "id": "e4f955b2ae337742",
+        "type": "http in",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "url": "user/:userName",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 2760,
+        "wires": [
+            [
+                "4e0ff9229d3a5647"
+            ]
+        ]
+    },
+    {
+        "id": "9e0f79b59b53f6d6",
+        "type": "http response",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1190,
+        "y": 2760,
+        "wires": []
+    },
+    {
+        "id": "4e0ff9229d3a5647",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "loadPathParameters",
+        "func": "\nvar username = msg.req.params.userName;\nmsg.payload = {\n    \"userName\": username\n}\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 2760,
+        "wires": [
+            [
+                "7ee9806ae2cf3c2f"
+            ]
+        ]
+    },
+    {
+        "id": "7ee9806ae2cf3c2f",
+        "type": "mongodb in",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "users",
+        "operation": "find",
+        "x": 850,
+        "y": 2760,
+        "wires": [
+            [
+                "9e0f79b59b53f6d6"
+            ]
+        ]
+    },
+    {
+        "id": "75092e6aaae9eb6a",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "getUserInfo",
+        "info": "get the user details\n FR-3 Ο χρήστης θα μπορεί να φτιάξει το προφίλ του",
+        "x": 110,
+        "y": 2700,
+        "wires": []
+    },
+    {
+        "id": "512c10e48d9630a4",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "FR-3 Ο χρήστης θα μπορεί να φτιάξει το προφίλ του",
+        "info": "post a message to the classroom",
+        "x": 230,
+        "y": 2620,
+        "wires": []
+    },
+    {
+        "id": "bf2aec969e6796b9",
+        "type": "http in",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "url": "user/:userName",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 3000,
+        "wires": [
+            [
+                "6a995a22cc30ed97"
+            ]
+        ]
+    },
+    {
+        "id": "6a995a22cc30ed97",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "loadPathParameter",
+        "func": "\nvar username = msg.req.params.userName;\nlet editProfile = JSON.parse(msg.req.body);\nmsg.payload = {\n    \"userName\": username\n}\nmsg.topic = editProfile;\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 3000,
+        "wires": [
+            [
+                "f5f2b184c0324322",
+                "94a98cc3a0534750"
+            ]
+        ]
+    },
+    {
+        "id": "14e62e1e7bf10c46",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "changeUserInfo",
+        "info": "edit the user details\n",
+        "x": 120,
+        "y": 2940,
+        "wires": []
+    },
+    {
+        "id": "6c6723b637636ab2",
+        "type": "mongodb out",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "users",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 1090,
+        "y": 3100,
+        "wires": []
+    },
+    {
+        "id": "f5f2b184c0324322",
+        "type": "mongodb in",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "users",
+        "operation": "find",
+        "x": 730,
+        "y": 3000,
+        "wires": [
+            [
+                "7d44e7c7dde3129c",
+                "325dd71e75c391e6"
+            ]
+        ]
+    },
+    {
+        "id": "7d44e7c7dde3129c",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "changeUserData",
+        "func": "\nmsg.payload[0].name = msg.topic.name;\nmsg.payload[0].surname = msg.topic.surname;  \nmsg.payload[0].email = msg.topic.email ; \nlet user = msg.payload[0] ; \nmsg.payload = user; \n\nreturn msg ; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 3000,
+        "wires": [
+            [
+                "f987d54e3460cf91",
+                "dab868a3cb145bed"
+            ]
+        ]
+    },
+    {
+        "id": "325dd71e75c391e6",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 2940,
+        "wires": []
+    },
+    {
+        "id": "94a98cc3a0534750",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "userName",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 2940,
+        "wires": []
+    },
+    {
+        "id": "f987d54e3460cf91",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "changed data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 2940,
+        "wires": []
+    },
+    {
+        "id": "dab868a3cb145bed",
+        "type": "change",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "query._id",
+                "pt": "msg",
+                "to": "payload._id",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload._id",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 3140,
+        "wires": [
+            [
+                "6c6723b637636ab2",
+                "f6c97b4bb2c25dff",
+                "a8757015b1721abe"
+            ]
+        ]
+    },
+    {
+        "id": "f6c97b4bb2c25dff",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "adding id to query",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1070,
+        "y": 3240,
+        "wires": []
+    },
+    {
+        "id": "a8757015b1721abe",
+        "type": "http response",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1030,
+        "y": 3160,
+        "wires": []
+    },
+    {
+        "id": "8038ec508d475861",
+        "type": "http in",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "url": "/user/:userName/class/:className/grade",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 3620,
+        "wires": [
+            [
+                "4aea62da869233b7"
+            ]
+        ]
+    },
+    {
+        "id": "0fd0c4dace6d168c",
+        "type": "http response",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1190,
+        "y": 3620,
+        "wires": []
+    },
+    {
+        "id": "4aea62da869233b7",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "loadPathParameters",
+        "func": "var classname = msg.req.params.className;\nvar username = msg.req.params.userName;\nmsg.payload = {\n    \"username\": username,\n    \"className\": classname\n}\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 3620,
+        "wires": [
+            [
+                "d34558a52640f188"
+            ]
+        ]
+    },
+    {
+        "id": "d34558a52640f188",
+        "type": "mongodb in",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "grades",
+        "operation": "find",
+        "x": 850,
+        "y": 3620,
+        "wires": [
+            [
+                "0fd0c4dace6d168c"
+            ]
+        ]
+    },
+    {
+        "id": "9d251c7a1644d003",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "getUserGrade",
+        "info": "get the grade of the user\n F4- Το σύστημα θα πρέπει να μπορεί να υπολογίσει τον μέσο όρο του μαθητή",
+        "x": 110,
+        "y": 3560,
+        "wires": []
+    },
+    {
+        "id": "f622802c3b069c60",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "FR-4 Το σύστημα θα πρέπει να μπορεί να υπολογίσει τον μέσο όρο του μαθητή",
+        "info": "get the grade of the user\n F4- Το σύστημα θα πρέπει να μπορεί να υπολογίσει τον μέσο όρο του μαθητή",
+        "x": 310,
+        "y": 3500,
+        "wires": []
+    },
+    {
+        "id": "13d1fc3fc8f17126",
+        "type": "http in",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "url": "/user/:userName/notifications",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 4080,
+        "wires": [
+            [
+                "f4d9a79c15ae4244"
+            ]
+        ]
+    },
+    {
+        "id": "3301fefa0b4691d7",
+        "type": "http response",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1170,
+        "y": 4080,
+        "wires": []
+    },
+    {
+        "id": "f4d9a79c15ae4244",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "loadPathParameters",
+        "func": "var username = msg.req.params.userName;\n// msg.payload = {\n//     \"username\": username,\n//     \"className\": classname\n// }\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 4080,
+        "wires": [
+            [
+                "732c6f8f469b21a4"
+            ]
+        ]
+    },
+    {
+        "id": "732c6f8f469b21a4",
+        "type": "mongodb in",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "notifications",
+        "operation": "find",
+        "x": 850,
+        "y": 4080,
+        "wires": [
+            [
+                "3301fefa0b4691d7"
+            ]
+        ]
+    },
+    {
+        "id": "f04ad78fd23a8a34",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "getUserNotifications",
+        "info": "get the notifications of the user\n F5- Το σύστημα θα πρέπει να ειδοποιεί τον χρήστη για νέες ειδοποιήσεις",
+        "x": 130,
+        "y": 4020,
+        "wires": []
+    },
+    {
+        "id": "603beb86adc6769f",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "FR-5 Το σύστημα θα πρέπει να ειδοποιεί τον χρήστη για νέες ειδοποιήσεις",
+        "info": "",
+        "x": 1380,
+        "y": 3940,
+        "wires": []
+    },
+    {
+        "id": "d0f08c89e74eab3b",
+        "type": "http in",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "url": "/user/:userName/notifications/:notificationId",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 4280,
+        "wires": [
+            [
+                "fcadee5de2ee4212"
+            ]
+        ]
+    },
+    {
+        "id": "ac98c7cfd323c20d",
+        "type": "http response",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1170,
+        "y": 4280,
+        "wires": []
+    },
+    {
+        "id": "fcadee5de2ee4212",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "loadPathParameters",
+        "func": "var notificationId = parseInt(msg.req.params.notificationId);\nvar username = msg.req.params.userName;\nmsg.payload = {\n    \"id\": notificationId\n}\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 4280,
+        "wires": [
+            [
+                "9e25a07f7e291838"
+            ]
+        ]
+    },
+    {
+        "id": "9e25a07f7e291838",
+        "type": "mongodb in",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "notifications",
+        "operation": "find",
+        "x": 850,
+        "y": 4280,
+        "wires": [
+            [
+                "ac98c7cfd323c20d"
+            ]
+        ]
+    },
+    {
+        "id": "dc77d1973e2d9015",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "getUserNotificationById",
+        "info": "get a notification of the user using its id\n F5- Το σύστημα θα πρέπει να ειδοποιεί τον χρήστη για νέες ειδοποιήσεις",
+        "x": 140,
+        "y": 4220,
+        "wires": []
+    },
+    {
+        "id": "76334b45fb65648b",
+        "type": "http in",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "url": "/admin/notifications",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 130,
+        "y": 4460,
+        "wires": [
+            [
+                "e0ab53647500aa23"
+            ]
+        ]
+    },
+    {
+        "id": "7b2afed936c80014",
+        "type": "http response",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1130,
+        "y": 4460,
+        "wires": []
+    },
+    {
+        "id": "e0ab53647500aa23",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "loadPathParameters",
+        "func": "var username = msg.req.params.userName;\n// msg.payload = {\n//     \"username\": username,\n//     \"className\": classname\n// }\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 4460,
+        "wires": [
+            [
+                "07a00d94c7940249"
+            ]
+        ]
+    },
+    {
+        "id": "07a00d94c7940249",
+        "type": "mongodb in",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "notifications",
+        "operation": "find",
+        "x": 850,
+        "y": 4460,
+        "wires": [
+            [
+                "7b2afed936c80014",
+                "7abe0b35d0ce7cab"
+            ]
+        ]
+    },
+    {
+        "id": "3f71b4e7ceb83248",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "getAdminNotifications",
+        "info": "get all the notifications\n F5- Το σύστημα θα πρέπει να ειδοποιεί τον χρήστη για νέες ειδοποιήσεις",
+        "x": 140,
+        "y": 4400,
+        "wires": []
+    },
+    {
+        "id": "7abe0b35d0ce7cab",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 4580,
+        "wires": []
+    },
+    {
+        "id": "9bbd28fbd291b043",
+        "type": "http in",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "url": "/admin/notifications/:notificationId",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 4740,
+        "wires": [
+            [
+                "e9114fdc99a9c3f5"
+            ]
+        ]
+    },
+    {
+        "id": "e76fd7850eb9f166",
+        "type": "http response",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "statusCode": "",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1170,
+        "y": 4740,
+        "wires": []
+    },
+    {
+        "id": "e9114fdc99a9c3f5",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "loadPathParameters",
+        "func": "var notificationId = parseInt(msg.req.params.notificationId);\nvar username = msg.req.params.userName;\nmsg.payload = {\n    \"id\": notificationId\n}\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 4740,
+        "wires": [
+            [
+                "d5dd91b94fe23ae0"
+            ]
+        ]
+    },
+    {
+        "id": "d5dd91b94fe23ae0",
+        "type": "mongodb in",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "notifications",
+        "operation": "find",
+        "x": 850,
+        "y": 4740,
+        "wires": [
+            [
+                "e76fd7850eb9f166"
+            ]
+        ]
+    },
+    {
+        "id": "2439f86c87043116",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "getAdminNotificationById",
+        "info": "get a certain notification\n F5- Το σύστημα θα πρέπει να ειδοποιεί τον χρήστη για νέες ειδοποιήσεις",
+        "x": 150,
+        "y": 4680,
+        "wires": []
+    },
+    {
+        "id": "c516ff82cc052bb1",
+        "type": "http in",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "url": "/admin/notifications",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 4940,
+        "wires": [
+            [
+                "9bd2ecf3c9f3b4ca"
+            ]
+        ]
+    },
+    {
+        "id": "10c08fbea1b710d8",
+        "type": "mongodb out",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "notifications",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 810,
+        "y": 4840,
+        "wires": []
+    },
+    {
+        "id": "c2b523fce87eec2c",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "postNotification",
+        "info": "post a notification",
+        "x": 120,
+        "y": 4880,
+        "wires": []
+    },
+    {
+        "id": "9bd2ecf3c9f3b4ca",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "loadPathParameter",
+        "func": "let notification = JSON.parse(msg.req.body) ;\n//msg.topic = notification ; \n\nmsg.payload = notification\n// msg.topic = editClass;\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 466,
+        "y": 4942,
+        "wires": [
+            [
+                "10c08fbea1b710d8",
+                "523359482a2a868d",
+                "8bf7dcfe135bcb09"
+            ]
+        ]
+    },
+    {
+        "id": "523359482a2a868d",
+        "type": "http response",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 730,
+        "y": 4980,
+        "wires": []
+    },
+    {
+        "id": "8bf7dcfe135bcb09",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "notification",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 4920,
+        "wires": []
+    },
+    {
+        "id": "6dc86b56ca2d4420",
+        "type": "http in",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "url": "/admin/notifications/:notificationId",
+        "method": "delete",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 1480,
+        "y": 4760,
+        "wires": [
+            [
+                "419c97a16741ca4a"
+            ]
+        ]
+    },
+    {
+        "id": "419c97a16741ca4a",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "loadPathParameter",
+        "func": "let id = parseInt(msg.req.params.notificationId);\n\nmsg.payload = { \n    \"id\":id\n}\nreturn msg ; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1810,
+        "y": 4760,
+        "wires": [
+            [
+                "813ca76c1257f91f",
+                "ef806b987a90eef1"
+            ]
+        ]
+    },
+    {
+        "id": "31a2048e0a5b9b7d",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "deleteAdminNotificationById",
+        "info": "delete a certain notification\nF5- Το σύστημα θα πρέπει να ειδοποιεί τον χρήστη για νέες ειδοποιήσεις",
+        "x": 1440,
+        "y": 4700,
+        "wires": []
+    },
+    {
+        "id": "3f197f82d7678b90",
+        "type": "mongodb out",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "notifications",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "delete",
+        "x": 2530,
+        "y": 4860,
+        "wires": []
+    },
+    {
+        "id": "813ca76c1257f91f",
+        "type": "mongodb in",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "notifications",
+        "operation": "find",
+        "x": 2090,
+        "y": 4760,
+        "wires": [
+            [
+                "5ca7a166f8ca70b7",
+                "53c41bc9d32759a5"
+            ]
+        ]
+    },
+    {
+        "id": "5ca7a166f8ca70b7",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2080,
+        "y": 4700,
+        "wires": []
+    },
+    {
+        "id": "ef806b987a90eef1",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "notificationId",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1830,
+        "y": 4700,
+        "wires": []
+    },
+    {
+        "id": "9521edc4a40f50b7",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "object to be deleted",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2530,
+        "y": 4660,
+        "wires": []
+    },
+    {
+        "id": "53c41bc9d32759a5",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "Notification",
+        "func": " \nlet notification = msg.payload[0] ; \nmsg.payload = notification; \n\nreturn msg ; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2350,
+        "y": 4760,
+        "wires": [
+            [
+                "3f197f82d7678b90",
+                "9521edc4a40f50b7",
+                "97c41ad5be0f52e7"
+            ]
+        ]
+    },
+    {
+        "id": "14b6fa802a8df4ba",
+        "type": "http in",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "url": "/admin/notifications/:notificationId",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 1470,
+        "y": 4200,
+        "wires": [
+            [
+                "0991de0672182e7a"
+            ]
+        ]
+    },
+    {
+        "id": "0991de0672182e7a",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "loadPathParameter",
+        "func": "let notification = parseInt(msg.req.params.notificationId) ;\nlet editnotification = JSON.parse(msg.req.body);\nmsg.payload = { \n    \"id\": notification\n}\nmsg.topic = editnotification;\nreturn msg ; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1790,
+        "y": 4200,
+        "wires": [
+            [
+                "6440f4bfe36962a7",
+                "5ab2c2e65ba90fce",
+                "a9febad335255f95"
+            ]
+        ]
+    },
+    {
+        "id": "5cd6fb7c9849128a",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "editAdminNotificationById",
+        "info": "edit a certain notification\nF5- Το σύστημα θα πρέπει να ειδοποιεί τον χρήστη για νέες ειδοποιήσεις",
+        "x": 1430,
+        "y": 4140,
+        "wires": []
+    },
+    {
+        "id": "457742b9b8c5ec7a",
+        "type": "mongodb out",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "notifications",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "update",
+        "x": 2410,
+        "y": 4320,
+        "wires": []
+    },
+    {
+        "id": "6440f4bfe36962a7",
+        "type": "mongodb in",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "notifications",
+        "operation": "find",
+        "x": 2130,
+        "y": 4200,
+        "wires": [
+            [
+                "f3798fc775cfb57a",
+                "3ea5219468c9ef71"
+            ]
+        ]
+    },
+    {
+        "id": "f3798fc775cfb57a",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "changeNotification",
+        "func": "msg.payload[0].title = msg.topic.title ; \nmsg.payload[0].body = msg.topic.body ; \nlet notification = msg.payload[0] ; \nmsg.payload = notification; \n\nreturn msg ; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2450,
+        "y": 4200,
+        "wires": [
+            [
+                "0824a35c613b314b",
+                "d7b98f049489530c"
+            ]
+        ]
+    },
+    {
+        "id": "3ea5219468c9ef71",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2120,
+        "y": 4120,
+        "wires": []
+    },
+    {
+        "id": "5ab2c2e65ba90fce",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "Notifcation to be searched",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1830,
+        "y": 4100,
+        "wires": []
+    },
+    {
+        "id": "0824a35c613b314b",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "changed data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2440,
+        "y": 4120,
+        "wires": []
+    },
+    {
+        "id": "d7b98f049489530c",
+        "type": "change",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "query._id",
+                "pt": "msg",
+                "to": "payload._id",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "payload._id",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2060,
+        "y": 4380,
+        "wires": [
+            [
+                "457742b9b8c5ec7a",
+                "40e9bc1f51f29642",
+                "309b1fea210a6f51"
+            ]
+        ]
+    },
+    {
+        "id": "40e9bc1f51f29642",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "adding id to query",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2410,
+        "y": 4500,
+        "wires": []
+    },
+    {
+        "id": "a9febad335255f95",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "new Data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1820,
+        "y": 4280,
+        "wires": []
+    },
+    {
+        "id": "309b1fea210a6f51",
+        "type": "http response",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 2410,
+        "y": 4400,
+        "wires": []
+    },
+    {
+        "id": "97c41ad5be0f52e7",
+        "type": "http response",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 2590,
+        "y": 4760,
+        "wires": []
+    },
+    {
+        "id": "a736a243bdb8953e",
+        "type": "http in",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "url": "admin/user/:userName",
+        "method": "delete",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 1510,
+        "y": 3440,
+        "wires": [
+            [
+                "1d5784d4a33bf9eb"
+            ]
+        ]
+    },
+    {
+        "id": "1d5784d4a33bf9eb",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "loadPathParameter",
+        "func": "let userName = msg.req.params.userName;\n\nmsg.payload = { \n    \"userName\": userName\n}\nreturn msg ; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1830,
+        "y": 3440,
+        "wires": [
+            [
+                "0c7c35b3e2302958",
+                "f90d34097def7a18"
+            ]
+        ]
+    },
+    {
+        "id": "210c7f123d9873b6",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "deleteUser",
+        "info": "delete a certain user\n",
+        "x": 1440,
+        "y": 3400,
+        "wires": []
+    },
+    {
+        "id": "f513159fbf1e5660",
+        "type": "mongodb out",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "users",
+        "payonly": false,
+        "upsert": false,
+        "multi": false,
+        "operation": "delete",
+        "x": 2370,
+        "y": 3700,
+        "wires": []
+    },
+    {
+        "id": "0c7c35b3e2302958",
+        "type": "mongodb in",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "users",
+        "operation": "find",
+        "x": 2130,
+        "y": 3440,
+        "wires": [
+            [
+                "77921f0bd6dc803a",
+                "6364ebc60f2e0f5f"
+            ]
+        ]
+    },
+    {
+        "id": "77921f0bd6dc803a",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2120,
+        "y": 3360,
+        "wires": []
+    },
+    {
+        "id": "f90d34097def7a18",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "className",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1850,
+        "y": 3380,
+        "wires": []
+    },
+    {
+        "id": "becdac2cb264995f",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "object to be deleted",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2350,
+        "y": 3620,
+        "wires": []
+    },
+    {
+        "id": "6364ebc60f2e0f5f",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "userName",
+        "func": " \nlet _user = msg.payload[0] ; \nmsg.payload = _user; \n\nreturn msg ; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2090,
+        "y": 3600,
+        "wires": [
+            [
+                "becdac2cb264995f",
+                "f513159fbf1e5660",
+                "d99c0839b338286a"
+            ]
+        ]
+    },
+    {
+        "id": "6a4f98ff83e40785",
+        "type": "http in",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "url": "/admin/user",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 1510,
+        "y": 3180,
+        "wires": [
+            [
+                "ad2dbfc41c40ac3b",
+                "ab281522d9290c86"
+            ]
+        ]
+    },
+    {
+        "id": "33ff3feef8ab6046",
+        "type": "mongodb out",
+        "z": "4c16b7e2987c9301",
+        "mongodb": "775aca05fbec61c7",
+        "name": "",
+        "collection": "users",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "insert",
+        "x": 2090,
+        "y": 3180,
+        "wires": []
+    },
+    {
+        "id": "0e6a635e5d0e9474",
+        "type": "comment",
+        "z": "4c16b7e2987c9301",
+        "name": "create user",
+        "info": "create User",
+        "x": 1480,
+        "y": 3120,
+        "wires": []
+    },
+    {
+        "id": "5665df64eb1667ad",
+        "type": "http response",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 2050,
+        "y": 3100,
+        "wires": []
+    },
+    {
+        "id": "d99c0839b338286a",
+        "type": "http response",
+        "z": "4c16b7e2987c9301",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 2330,
+        "y": 3540,
+        "wires": []
+    },
+    {
+        "id": "ad2dbfc41c40ac3b",
+        "type": "function",
+        "z": "4c16b7e2987c9301",
+        "name": "loadPathParameter",
+        "func": "let user = msg.req.body ;\n//msg.topic = notification ; \n\nmsg.payload = user ; \n// msg.topic = editClass;\nreturn msg; ",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1790,
+        "y": 3180,
+        "wires": [
+            [
+                "33ff3feef8ab6046",
+                "5665df64eb1667ad",
+                "4c7b1e9283527607"
+            ]
+        ]
+    },
+    {
+        "id": "4c7b1e9283527607",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1840,
+        "y": 3080,
+        "wires": []
+    },
+    {
+        "id": "ab281522d9290c86",
+        "type": "debug",
+        "z": "4c16b7e2987c9301",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1660,
+        "y": 3020,
+        "wires": []
+    },
+    {
+        "id": "d826e169f249476f",
+        "type": "tab",
+        "label": "client_server_pt2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "356b5065ef9b3bef",
+        "type": "http in",
+        "z": "d826e169f249476f",
+        "name": "",
+        "url": "/admin/class/:classname/user/:username/grade",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 260,
+        "y": 140,
+        "wires": [
+            [
+                "18e280a43508e83b"
+            ]
+        ]
+    },
+    {
+        "id": "c31bf9d3f00c6791",
+        "type": "comment",
+        "z": "d826e169f249476f",
+        "name": "postGrades",
+        "info": "Upload the grade for a student",
+        "x": 130,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "a957874fe2820f3c",
+        "type": "http response",
+        "z": "d826e169f249476f",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "18e280a43508e83b",
+        "type": "function",
+        "z": "d826e169f249476f",
+        "name": "loadPathParameter",
+        "func": "let username = msg.req.params.username;\nlet _class = msg.req.params.classname;\nlet grade = msg.req.body;\n\nmsg.payload = {\n    \"username\": username,\n    \"class\": _class,\n    \"grade\": grade\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 140,
+        "wires": [
+            [
+                "a957874fe2820f3c"
+            ]
+        ]
+    },
+    {
+        "id": "08013bf7b8e13a4e",
+        "type": "http in",
+        "z": "d826e169f249476f",
+        "name": "",
+        "url": "/admin/class/:classname/user/:username/test",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 250,
+        "y": 340,
+        "wires": [
+            [
+                "5fb4d46110c94a9f"
+            ]
+        ]
+    },
+    {
+        "id": "88fb6f60020f4782",
+        "type": "comment",
+        "z": "d826e169f249476f",
+        "name": "postTest",
+        "info": "Upload a test",
+        "x": 120,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f5bc5841e10a69ea",
+        "type": "http response",
+        "z": "d826e169f249476f",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "5fb4d46110c94a9f",
+        "type": "function",
+        "z": "d826e169f249476f",
+        "name": "loadPathParameter",
+        "func": "let username = msg.req.params.username;\nlet _class = msg.req.params.classname;\nlet test = msg.req.body;\n\nmsg.payload = {\n    \"username\": username,\n    \"class\": _class,\n    \"test\": test\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 340,
+        "wires": [
+            [
+                "f5bc5841e10a69ea"
+            ]
+        ]
+    },
+    {
+        "id": "6d2f17a51a40db3a",
+        "type": "http in",
+        "z": "d826e169f249476f",
+        "name": "",
+        "url": "/class/:classname/user/:username/notes",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 230,
+        "y": 580,
+        "wires": [
+            [
+                "92504faf46d6892a"
+            ]
+        ]
+    },
+    {
+        "id": "4ae4678d091d0f3b",
+        "type": "comment",
+        "z": "d826e169f249476f",
+        "name": "postNotes",
+        "info": "Upload notes",
+        "x": 120,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "05e2d37346930158",
+        "type": "http response",
+        "z": "d826e169f249476f",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "92504faf46d6892a",
+        "type": "function",
+        "z": "d826e169f249476f",
+        "name": "loadPathParameter",
+        "func": "let _class = msg.req.params.classname;\nlet notes = msg.req.body;\n\nmsg.payload = {\n    \"class\": _class,\n    \"notes\": notes\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 580,
+        "wires": [
+            [
+                "05e2d37346930158"
+            ]
+        ]
+    },
+    {
+        "id": "cdd86c90b4cea692",
+        "type": "http in",
+        "z": "d826e169f249476f",
+        "name": "",
+        "url": "/admin/class",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 150,
+        "y": 880,
+        "wires": [
+            [
+                "25badc3b0fdd9d5b"
+            ]
+        ]
+    },
+    {
+        "id": "fef89b1d31b70476",
+        "type": "comment",
+        "z": "d826e169f249476f",
+        "name": "postClass",
+        "info": "Upload notes",
+        "x": 120,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "6d738ae3f362abc1",
+        "type": "http response",
+        "z": "d826e169f249476f",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "25badc3b0fdd9d5b",
+        "type": "function",
+        "z": "d826e169f249476f",
+        "name": "loadPathParameter",
+        "func": "let _class = msg.req.body;\n\nmsg.payload = {\n    \"class\": _class\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 880,
+        "wires": [
+            [
+                "6d738ae3f362abc1"
+            ]
+        ]
+    },
+    {
+        "id": "add056ed4de156d9",
+        "type": "http in",
+        "z": "d826e169f249476f",
+        "name": "",
+        "url": "/class/:classname/user/:username/exercise",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 240,
+        "y": 1200,
+        "wires": [
+            [
+                "eb912896c4ff14c1"
+            ]
+        ]
+    },
+    {
+        "id": "9ed7cb6a0ae52df5",
+        "type": "comment",
+        "z": "d826e169f249476f",
+        "name": "postExercise",
+        "info": "Upload exercise",
+        "x": 130,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "a3339c99e6f19ac7",
+        "type": "http response",
+        "z": "d826e169f249476f",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "eb912896c4ff14c1",
+        "type": "function",
+        "z": "d826e169f249476f",
+        "name": "loadPathParameter",
+        "func": "let _class = msg.req.params.classname;\nlet username = msg.req.params.username;\nlet exercise = msg.req.body;\n\nmsg.payload = {\n    \"class\": _class,\n    \"username\": username,\n    \"exercise\": exercise\n\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1200,
+        "wires": [
+            [
+                "a3339c99e6f19ac7"
+            ]
+        ]
+    },
+    {
+        "id": "d6228ae66e372190",
+        "type": "comment",
+        "z": "d826e169f249476f",
+        "name": "post Exercise",
+        "info": "",
+        "x": 1430,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "a72763a32bc6d04f",
+        "type": "inject",
+        "z": "d826e169f249476f",
+        "name": "post exercise",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1430,
+        "y": 1200,
+        "wires": [
+            [
+                "ff0c152dec5f12ac"
+            ]
+        ]
+    },
+    {
+        "id": "d8cb2c339afecc90",
+        "type": "http request",
+        "z": "d826e169f249476f",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/class/math_18/user/:chris_k78/exercise",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "text/plain",
+                "valueValue": ""
+            }
+        ],
+        "x": 1930,
+        "y": 1200,
+        "wires": [
+            [
+                "9b1e845ff87fc761"
+            ]
+        ]
+    },
+    {
+        "id": "8f6636f3eee3744a",
+        "type": "debug",
+        "z": "d826e169f249476f",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2360,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "9b1e845ff87fc761",
+        "type": "json",
+        "z": "d826e169f249476f",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 2150,
+        "y": 1200,
+        "wires": [
+            [
+                "8f6636f3eee3744a"
+            ]
+        ]
+    },
+    {
+        "id": "ff0c152dec5f12ac",
+        "type": "function",
+        "z": "d826e169f249476f",
+        "name": "uploadBinaryFile",
+        "func": "msg.payload = {\n    \"exerciseFile\": \"fdsaAFSJFSKALFdiofjaOIdfdsdjsaf...\" \n}\n    \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1690,
+        "y": 1200,
+        "wires": [
+            [
+                "d8cb2c339afecc90"
+            ]
+        ]
+    },
+    {
+        "id": "91fa28c2cb8286a4",
+        "type": "comment",
+        "z": "d826e169f249476f",
+        "name": "post class",
+        "info": "",
+        "x": 1420,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "9f4db1b438c17095",
+        "type": "inject",
+        "z": "d826e169f249476f",
+        "name": "post class",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1420,
+        "y": 880,
+        "wires": [
+            [
+                "3bb5c894ece6c6a2"
+            ]
+        ]
+    },
+    {
+        "id": "b05fb99223e4a656",
+        "type": "http request",
+        "z": "d826e169f249476f",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/admin/class",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "text/plain",
+                "valueValue": ""
+            }
+        ],
+        "x": 1930,
+        "y": 880,
+        "wires": [
+            [
+                "574418629b17b927"
+            ]
+        ]
+    },
+    {
+        "id": "f2c733406dbb656d",
+        "type": "debug",
+        "z": "d826e169f249476f",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2360,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "574418629b17b927",
+        "type": "json",
+        "z": "d826e169f249476f",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 2150,
+        "y": 880,
+        "wires": [
+            [
+                "f2c733406dbb656d"
+            ]
+        ]
+    },
+    {
+        "id": "3bb5c894ece6c6a2",
+        "type": "function",
+        "z": "d826e169f249476f",
+        "name": "uploadClass",
+        "func": "msg.payload = {\n    \"className\": \"math_18\",\n    \"users\": [\"Kostas Ioannou\", \"Vasilis Kaplidis\", \"Vaios Christoglou\", \"Iasonas Karkelis\", \"Iliana Tzoura\"] \n}\n    \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1670,
+        "y": 880,
+        "wires": [
+            [
+                "b05fb99223e4a656"
+            ]
+        ]
+    },
+    {
+        "id": "3b07d449ddec9126",
+        "type": "comment",
+        "z": "d826e169f249476f",
+        "name": "post notes",
+        "info": "",
+        "x": 1400,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "086b0ccb57ffe38e",
+        "type": "inject",
+        "z": "d826e169f249476f",
+        "name": "post notes",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1400,
+        "y": 580,
+        "wires": [
+            [
+                "a34aa61877ed0a4e"
+            ]
+        ]
+    },
+    {
+        "id": "98d8210dbff7557b",
+        "type": "http request",
+        "z": "d826e169f249476f",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/class/math_18/user/kostas_k9/notes",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "text/plain",
+                "valueValue": ""
+            }
+        ],
+        "x": 1950,
+        "y": 580,
+        "wires": [
+            [
+                "8d0b51e2878191a0"
+            ]
+        ]
+    },
+    {
+        "id": "27ae4564d96dd8e2",
+        "type": "debug",
+        "z": "d826e169f249476f",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2340,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "8d0b51e2878191a0",
+        "type": "json",
+        "z": "d826e169f249476f",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 2130,
+        "y": 580,
+        "wires": [
+            [
+                "27ae4564d96dd8e2"
+            ]
+        ]
+    },
+    {
+        "id": "a34aa61877ed0a4e",
+        "type": "function",
+        "z": "d826e169f249476f",
+        "name": "uploadNotesBinaryFile",
+        "func": "msg.payload = {\n    \"notesFile\": \"fdsaAFSJFSKALFdiofjaOIdfdsdjsaf...\" \n}\n    \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1680,
+        "y": 580,
+        "wires": [
+            [
+                "98d8210dbff7557b"
+            ]
+        ]
+    },
+    {
+        "id": "701f4962a3f0acd3",
+        "type": "comment",
+        "z": "d826e169f249476f",
+        "name": "postGrades",
+        "info": "Upload the grade for a student",
+        "x": 1410,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "df1d986f8b0519cd",
+        "type": "inject",
+        "z": "d826e169f249476f",
+        "name": "post grades",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1410,
+        "y": 160,
+        "wires": [
+            [
+                "8637a384ebf1f9a0"
+            ]
+        ]
+    },
+    {
+        "id": "c2ac0d02d04a76c9",
+        "type": "http request",
+        "z": "d826e169f249476f",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "/admin/class/:classname/user/:username/grade",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1830,
+        "y": 160,
+        "wires": [
+            [
+                "05f09287f9956864"
+            ]
+        ]
+    },
+    {
+        "id": "7641a175a680e8ce",
+        "type": "debug",
+        "z": "d826e169f249476f",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2260,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "8637a384ebf1f9a0",
+        "type": "function",
+        "z": "d826e169f249476f",
+        "name": "function 16",
+        "func": "msg.payload = {\n    \"grades\": 15\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1590,
+        "y": 160,
+        "wires": [
+            [
+                "c2ac0d02d04a76c9"
+            ]
+        ]
+    },
+    {
+        "id": "05f09287f9956864",
+        "type": "json",
+        "z": "d826e169f249476f",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 2070,
+        "y": 160,
+        "wires": [
+            [
+                "7641a175a680e8ce"
+            ]
+        ]
+    },
+    {
+        "id": "7f94b16685a98f30",
+        "type": "inject",
+        "z": "d826e169f249476f",
+        "name": "post test",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1400,
+        "y": 360,
+        "wires": [
+            [
+                "dc0ceb57932f805a"
+            ]
+        ]
+    },
+    {
+        "id": "b6bdfaa3d5a44ed8",
+        "type": "http request",
+        "z": "d826e169f249476f",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "/admin/class/:classname/user/:username/test",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "text/plain",
+                "valueValue": ""
+            }
+        ],
+        "x": 1830,
+        "y": 360,
+        "wires": [
+            [
+                "993dc421510b7c50"
+            ]
+        ]
+    },
+    {
+        "id": "7f8e7ef48d24415b",
+        "type": "debug",
+        "z": "d826e169f249476f",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2260,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "993dc421510b7c50",
+        "type": "json",
+        "z": "d826e169f249476f",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 2070,
+        "y": 360,
+        "wires": [
+            [
+                "7f8e7ef48d24415b"
+            ]
+        ]
+    },
+    {
+        "id": "dc0ceb57932f805a",
+        "type": "function",
+        "z": "d826e169f249476f",
+        "name": "function 17",
+        "func": "msg.payload = {\n    \"test\": \"iugvIUTYC786ouyvsd8Yvk...\"\n    \n}\n    \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1590,
+        "y": 360,
+        "wires": [
+            [
+                "b6bdfaa3d5a44ed8"
+            ]
+        ]
+    },
+    {
+        "id": "3da120e583225ab7",
+        "type": "comment",
+        "z": "d826e169f249476f",
+        "name": "postTest",
+        "info": "Upload a test",
+        "x": 1400,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "993a54d8d358707a",
+        "type": "http in",
+        "z": "d826e169f249476f",
+        "name": "",
+        "url": "/admin/class/{className}/schedule",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 1520,
+        "wires": [
+            [
+                "c996eeba1c2686f9"
+            ]
+        ]
+    },
+    {
+        "id": "c301a1562a333895",
+        "type": "comment",
+        "z": "d826e169f249476f",
+        "name": "postSchedule",
+        "info": "Update the schedule with new scheduleItems",
+        "x": 130,
+        "y": 1460,
+        "wires": []
+    },
+    {
+        "id": "99387e9698cd9ad5",
+        "type": "http response",
+        "z": "d826e169f249476f",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 830,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "c996eeba1c2686f9",
+        "type": "function",
+        "z": "d826e169f249476f",
+        "name": "loadPathParameter",
+        "func": "let _class = msg.req.body;\n\nmsg.payload = {\n    \"className\": \"Mathematics 18\",\n    \"scheduleItem\": {\n        \"title\": \"Mathima Askiseon\",\n        \"time\": 12\n    }\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1520,
+        "wires": [
+            [
+                "99387e9698cd9ad5"
+            ]
+        ]
+    },
+    {
+        "id": "8e3a1961e67683fe",
+        "type": "comment",
+        "z": "d826e169f249476f",
+        "name": "post schedule",
+        "info": "",
+        "x": 1430,
+        "y": 1420,
+        "wires": []
+    },
+    {
+        "id": "54ed588024714811",
+        "type": "inject",
+        "z": "d826e169f249476f",
+        "name": "post schedule",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1430,
+        "y": 1500,
+        "wires": [
+            [
+                "321e943411cbd602"
+            ]
+        ]
+    },
+    {
+        "id": "211a453ad41853d4",
+        "type": "http request",
+        "z": "d826e169f249476f",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/admin/class/mathematics_18",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "text/plain",
+                "valueValue": ""
+            }
+        ],
+        "x": 1930,
+        "y": 1500,
+        "wires": [
+            [
+                "49703201ba981220"
+            ]
+        ]
+    },
+    {
+        "id": "cc05ea152fc81265",
+        "type": "debug",
+        "z": "d826e169f249476f",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2360,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "49703201ba981220",
+        "type": "json",
+        "z": "d826e169f249476f",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 2150,
+        "y": 1500,
+        "wires": [
+            [
+                "cc05ea152fc81265"
+            ]
+        ]
+    },
+    {
+        "id": "321e943411cbd602",
+        "type": "function",
+        "z": "d826e169f249476f",
+        "name": "createScheduleItem",
+        "func": "msg.payload = {\n    \"className\": \"Mathematics 18\",\n    \"ScheduleItem\": {\n        \"title\": \"Mathima Askiseon\",\n        \"time\": 12\n    }\n}\n    \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1700,
+        "y": 1500,
+        "wires": [
+            [
+                "211a453ad41853d4"
+            ]
+        ]
+    },
+    {
+        "id": "18fe3d0cb6880ba7",
+        "type": "http in",
+        "z": "d826e169f249476f",
+        "name": "",
+        "url": "/class/{className}/user/{userName}/exercises/{exerciseId}/grade",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 330,
+        "y": 1920,
+        "wires": [
+            [
+                "1125b2820c220f8d"
+            ]
+        ]
+    },
+    {
+        "id": "b08e61139edaa31a",
+        "type": "comment",
+        "z": "d826e169f249476f",
+        "name": "gradeExercise",
+        "info": "Grade the exercise uploaded by the student",
+        "x": 150,
+        "y": 1860,
+        "wires": []
+    },
+    {
+        "id": "753c507eaaa3cfb0",
+        "type": "http response",
+        "z": "d826e169f249476f",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1050,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "1125b2820c220f8d",
+        "type": "function",
+        "z": "d826e169f249476f",
+        "name": "loadPathParameter",
+        "func": "let _class = msg.req.body;\n\nmsg.payload = {\n    \"grade\": 10\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 1920,
+        "wires": [
+            [
+                "753c507eaaa3cfb0"
+            ]
+        ]
+    },
+    {
+        "id": "7172c0131cc83037",
+        "type": "comment",
+        "z": "d826e169f249476f",
+        "name": "grade exercise",
+        "info": "",
+        "x": 1440,
+        "y": 1840,
+        "wires": []
+    },
+    {
+        "id": "8df17d0606c93b53",
+        "type": "inject",
+        "z": "d826e169f249476f",
+        "name": "grade exercise",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1440,
+        "y": 1920,
+        "wires": [
+            [
+                "01d60d041258e6c7"
+            ]
+        ]
+    },
+    {
+        "id": "7bb1bcbac141f8ac",
+        "type": "http request",
+        "z": "d826e169f249476f",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/class/{className}/user/{userName}/exercises/{exerciseId}/grade",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "text/plain",
+                "valueValue": ""
+            }
+        ],
+        "x": 1930,
+        "y": 1920,
+        "wires": [
+            [
+                "f40c4a351f5e0919"
+            ]
+        ]
+    },
+    {
+        "id": "8d4b8adbb7617f51",
+        "type": "debug",
+        "z": "d826e169f249476f",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2360,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "f40c4a351f5e0919",
+        "type": "json",
+        "z": "d826e169f249476f",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 2150,
+        "y": 1920,
+        "wires": [
+            [
+                "8d4b8adbb7617f51"
+            ]
+        ]
+    },
+    {
+        "id": "01d60d041258e6c7",
+        "type": "function",
+        "z": "d826e169f249476f",
+        "name": "gradeExercise",
+        "func": "msg.payload = {\n    \"grade\": 10\n}\n    \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1680,
+        "y": 1920,
+        "wires": [
+            [
+                "7bb1bcbac141f8ac"
+            ]
+        ]
+    },
+    {
+        "id": "fb3452a8c7cca63b",
+        "type": "http in",
+        "z": "d826e169f249476f",
+        "name": "",
+        "url": "/admin/user/{userName}/role",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 2200,
+        "wires": [
+            [
+                "807ad431fa16face"
+            ]
+        ]
+    },
+    {
+        "id": "b91247137d2f9bc8",
+        "type": "comment",
+        "z": "d826e169f249476f",
+        "name": "setRole",
+        "info": "The admin should set the roles for each user (student, teacher)",
+        "x": 130,
+        "y": 2140,
+        "wires": []
+    },
+    {
+        "id": "ded371382b98830b",
+        "type": "http response",
+        "z": "d826e169f249476f",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1050,
+        "y": 2200,
+        "wires": []
+    },
+    {
+        "id": "807ad431fa16face",
+        "type": "function",
+        "z": "d826e169f249476f",
+        "name": "loadPathParameter",
+        "func": "let _class = msg.req.body;\n\nmsg.payload = {\n    \"role\": \"Teacher\",\n    \"permissions\": [\"...\", \"...\", \"...\"]\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 2200,
+        "wires": [
+            [
+                "ded371382b98830b"
+            ]
+        ]
+    },
+    {
+        "id": "661ffe9e75f43157",
+        "type": "comment",
+        "z": "d826e169f249476f",
+        "name": "set role",
+        "info": "",
+        "x": 1410,
+        "y": 2120,
+        "wires": []
+    },
+    {
+        "id": "41034dee55a5d9d2",
+        "type": "inject",
+        "z": "d826e169f249476f",
+        "name": "set role",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1410,
+        "y": 2200,
+        "wires": [
+            [
+                "d551f947b2a17863"
+            ]
+        ]
+    },
+    {
+        "id": "f6fd773022a4bac9",
+        "type": "http request",
+        "z": "d826e169f249476f",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://127.0.0.1:1880/admin/user/{userName}/role",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "text/plain",
+                "valueValue": ""
+            }
+        ],
+        "x": 1930,
+        "y": 2200,
+        "wires": [
+            [
+                "32a782253dfe0319"
+            ]
+        ]
+    },
+    {
+        "id": "26876c99250e4f74",
+        "type": "debug",
+        "z": "d826e169f249476f",
+        "name": "initial data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2360,
+        "y": 2200,
+        "wires": []
+    },
+    {
+        "id": "32a782253dfe0319",
+        "type": "json",
+        "z": "d826e169f249476f",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 2150,
+        "y": 2200,
+        "wires": [
+            [
+                "26876c99250e4f74"
+            ]
+        ]
+    },
+    {
+        "id": "d551f947b2a17863",
+        "type": "function",
+        "z": "d826e169f249476f",
+        "name": "createScheduleItem",
+        "func": "msg.payload = {\n    \"roleName\": \"Teacher\",\n    \"permissions\": [\"...\", \"...\", \"...\"]\n}\n    \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1700,
+        "y": 2200,
+        "wires": [
+            [
+                "f6fd773022a4bac9"
+            ]
+        ]
+    },
+    {
+        "id": "775aca05fbec61c7",
+        "type": "mongodb",
+        "hostname": "127.0.0.1",
+        "topology": "direct",
+        "connectOptions": "",
+        "port": "27017",
+        "db": "tester",
+        "name": ""
+    }
+]
